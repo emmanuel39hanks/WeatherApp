@@ -1,0 +1,14 @@
+/* iOS Cordova Tweak */
+.device-cordova.device-ios {
+  height: 100vh;
+}
+
+/* Custom color theme properties */
+:root {
+  --f7-theme-color: #42d1f4;
+  --f7-theme-color-rgb: 66, 209, 244;
+  --f7-theme-color-shade: #1bc8f2;
+  --f7-theme-color-tint: #69daf6;
+}
+
+/* Your app custom styles here */
