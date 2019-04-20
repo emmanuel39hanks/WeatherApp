@@ -5,21 +5,11 @@ import {
   Views,
   View,
   Statusbar,
-  Popup,
   Page,
   Navbar,
   Toolbar,
-  NavRight,
   Link,
-  Block,
-  BlockTitle,
-  LoginScreen,
-  LoginScreenTitle,
-  List,
-  ListItem,
-  ListInput,
-  ListButton,
-  BlockFooter
+  Block
 } from 'framework7-react';
 
 import cordovaApp from '../js/cordova-app';
@@ -66,13 +56,14 @@ export default class extends React.Component {
       },
       
       isLoading: true,
-      weather: [],
+      weather: {},
       error: null
     }
     this.fetchWeather = this.fetchWeather.bind(this)
     this.drawWeather = this.drawWeather.bind(this)
   }
   render() {
+    console.log(this.state.weather)
     return (
       <App params={ this.state.f7params }>
         {/* Status bar overlay for fullscreen mode*/}
@@ -122,50 +113,8 @@ export default class extends React.Component {
 
 
         {/* Popup */}
-        <Popup id="my-popup">
-          <View>
-            <Page>
-              <Navbar title="Popup">
-                <NavRight>
-                  <Link popupClose>Close</Link>
-                </NavRight>
-              </Navbar>
-              <Block>
-                <p>Popup content goes here.</p>
-              </Block>
-            </Page>
-          </View>
-        </Popup>
+       
 
-        <LoginScreen id="my-login-screen">
-          <View>
-            <Page loginScreen>
-              <LoginScreenTitle>Login</LoginScreenTitle>
-              <List form>
-                <ListInput
-                  type="text"
-                  name="username"
-                  placeholder="Your username"
-                  value={this.state.username}
-                  onInput={(e) => this.setState({username: e.target.value})}
-                ></ListInput>
-                <ListInput
-                  type="password"
-                  name="password"
-                  placeholder="Your password"
-                  value={this.state.password}
-                  onInput={(e) => this.setState({password: e.target.value})}
-                ></ListInput>
-              </List>
-              <List>
-                <ListButton title="Sign In" loginScreenClose onClick={() => this.alertLoginData()} />
-                <BlockFooter>
-                  Some text about login information.<br />Click "Sign In" to close Login Screen
-                </BlockFooter>
-              </List>
-            </Page>
-          </View>
-        </LoginScreen>
       </App>
     )
   }
@@ -179,8 +128,8 @@ export default class extends React.Component {
   .then(
     data =>
       this.setState({
-      weather: data,
-      isLoading: false,
+        weather: data,
+        isLoading: false
       })
   )
   // If we catch errors instead of a response, let's update the app
