@@ -22,8 +22,8 @@ export default class extends React.Component {
     this.state = {
       // Framework7 Parameters
       f7params: {
-        id: 'io.emmanuelhaankwenda.weatherapp', // App bundle ID
-        name: 'Weather App', // App name
+        id: 'io.emmanuelhaankwenda.skycast', // App bundle ID
+        name: 'SkyCast', // App name
         theme: 'auto', // Automatic theme detection
         // App root data
         

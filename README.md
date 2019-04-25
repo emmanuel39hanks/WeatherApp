@@ -11,7 +11,7 @@ Framework7 app created with following options:
     "cordova"
   ],
   "name": "SkyCast",
-  "pkg": "io.emmanuelhaankwenda.weatherapp",
+  "pkg": "io.emmanuelhaankwenda.skycast",
   "platform": [
     "ios",
     "android"

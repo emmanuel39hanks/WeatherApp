@@ -11,7 +11,7 @@
       "cordova"
     ],
     "name": "SkyCast",
-    "pkg": "io.emmanuelhaankwenda.weatherapp",
+    "pkg": "io.emmanuelhaankwenda.skycast",
     "platform": [
       "ios",
       "android"
