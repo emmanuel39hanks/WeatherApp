@@ -64,7 +64,7 @@ export default class extends React.Component {
         this.state.isLoading ? null 
       : 
       <Block>
-          <Button raised small fill onClick={() => {this.setState({loginScreenOpened : true})}}>Settings</Button>
+          <Button raised small fill onClick={() => {this.setState({loginScreenOpened : true, isLoading: true})}}>Settings</Button>
       </Block>
       }
 
@@ -101,7 +101,10 @@ export default class extends React.Component {
             </List>
             <List>
               <ListButton onClick={this.saveChanges.bind(this)}>Save Changes</ListButton>
-              <BlockTitle className="text-align-center">Emmanuel Haankwenda.</BlockTitle>
+              <BlockTitle className="text-align-center">Emmanuel Haankwenda</BlockTitle>
+                <Block>
+                  <p className="error">Make sure you enter the right city and state e.g (Lusaka,ZA).<br/>cause the app might break as it is still in development.</p>
+                </Block>
             </List>
           </Page>
         </LoginScreen>
@@ -113,11 +116,13 @@ export default class extends React.Component {
   saveChanges() {
     const self = this;
     const app = self.$f7;
-
+   
     app.dialog.alert(`City: ${self.state.city}<br>State: ${self.state.state}`, () => {
+      
       app.loginScreen.close();
       console.log(self.state.city)
-      
+      this.fetchWeather( this.state.city,this.state.state )
+      self.setState({isLoading:false})
     });
 
   }
@@ -151,5 +156,6 @@ export default class extends React.Component {
       // Call F7 APIs here
     });
     this.fetchWeather( this.state.city,this.state.state )
+
   }
 }

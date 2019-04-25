@@ -13,6 +13,10 @@
 
 /* Your app custom styles here */
 
+.statusbar {
+  background-color: #42d1f4;
+}
+
 .loader {
   vertical-align: middle;
 }
@@ -57,6 +61,6 @@
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.navcae {
-  text-align: center
+.error {
+  text-align: center;
 }

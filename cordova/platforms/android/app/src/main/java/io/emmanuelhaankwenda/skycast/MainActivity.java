@@ -17,7 +17,7 @@
        under the License.
  */
 
-package io.emmanuelhaankwenda.weatherapp;
+package io.emmanuelhaankwenda.skycast;
 
 import android.os.Bundle;
 import org.apache.cordova.*;
