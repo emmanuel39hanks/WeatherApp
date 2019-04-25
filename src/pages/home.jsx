@@ -64,7 +64,7 @@ export default class extends React.Component {
         this.state.isLoading ? null 
       : 
       <Block>
-          <Button raised small fill onClick={() => {this.setState({loginScreenOpened : true, isLoading: true})}}>Settings</Button>
+          <Button raised small fill onClick={() => {this.setState({loginScreenOpened : true})}}>Settings</Button>
       </Block>
       }
 
@@ -122,7 +122,7 @@ export default class extends React.Component {
       app.loginScreen.close();
       console.log(self.state.city)
       this.fetchWeather( this.state.city,this.state.state )
-      self.setState({isLoading:false})
+    
     });
 
   }
