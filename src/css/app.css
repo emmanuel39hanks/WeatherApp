@@ -14,12 +14,49 @@
 /* Your app custom styles here */
 
 .loader {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  vertical-align: middle;
 }
 
 .name {
-  font-size: 23px;
+  font-size: 42px;
+  font-weight: 100;
+  text-align: center;
+  margin-top: 5px;
   margin-bottom: 5px;
+  
+}
+
+.name2 {
+  font-size: 50px;
+  font-weight: 100;
+  text-align: center;
+ 
+ 
+}
+
+
+.container {
+    padding-right: 25px;
+    padding-left: 25px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+.img {
+  
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  
+}
+
+.displaydes {
+  text-align: center;
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.navcae {
+  text-align: center
 }

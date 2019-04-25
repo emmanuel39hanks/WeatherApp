@@ -35,7 +35,7 @@ export default class extends React.Component {
   }
   render() {
     console.log(this.state.weather)
-    console.log(this.$f7LoginScreen)
+  
    return (
       <Page name="home">
   
@@ -43,7 +43,7 @@ export default class extends React.Component {
      
       {
         this.state.isLoading ?  
-        <Block className="demo-preloaders align-items-stretch text-align-center">
+        <Block className="demo-preloaders loader align-items-stretch text-align-center">
           <Preloader size={62} color="#42d1f4"></Preloader>
         </Block>
         :
@@ -116,7 +116,7 @@ export default class extends React.Component {
 
     app.dialog.alert(`City: ${self.state.city}<br>State: ${self.state.state}`, () => {
       app.loginScreen.close();
-      location.reload();
+      console.log(self.state.city)
       
     });
 
