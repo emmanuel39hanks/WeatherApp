@@ -8,8 +8,9 @@ import {
   Block
 } from 'framework7-react';
 
-export default () => (
-  <Page name="settings">
+export default function Settings()  {
+  return(
+    <Page name="settings">
     <Navbar title="Settings" />
 
     <List noHairlinesMd>
@@ -31,7 +32,9 @@ export default () => (
     </ListInput>
     </List>
     <Block>
-      <Button medium raised fill>Save Changes</Button>
+    <Button medium raised fill>Save Changes</Button>
     </Block>
   </Page>
-);
+  )
+};
+

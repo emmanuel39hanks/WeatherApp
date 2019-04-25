@@ -2,12 +2,20 @@ import React from 'react';
 import {
   Page,
   Navbar,
-  BlockTitle,
+  Preloader,
+  Block,
+  Button,
+  LoginScreen,
+  LoginScreenTitle,
+  ListButton,
+  BlockFooter,
   List,
-  ListItem
-
+  ListInput,
+  BlockTitle
 
 } from 'framework7-react';
+import ToRender from '../components/ToRender'
+
 
 export default class extends React.Component {
   constructor(props) {
@@ -16,29 +24,102 @@ export default class extends React.Component {
     this.state = {
       weather: {},
       isLoading: true,
-      error: null
+      error: null,
+      loginScreenOpened: false,
+      city: "Toronto",
+      state:"CA"
     }
 
     this.fetchWeather = this.fetchWeather.bind(this)
-    this.drawWeather = this.drawWeather.bind(this)
+ 
   }
   render() {
     console.log(this.state.weather)
-   // let iconurl = `http://openweathermap.org/img/w/${this.state.weather.list.weather.icon}.png`;
+    console.log(this.$f7LoginScreen)
    return (
       <Page name="home">
   
       <Navbar title="SkyCast" />
-      <BlockTitle>{this.state.weather.name},</BlockTitle>
-      <List simple-list>
-        <ListItem title="Temp:"></ListItem>
-        <ListItem title="Humidity:"></ListItem>
-        <ListItem title="Visibility:"></ListItem>
-      </List>
+     
+      {
+        this.state.isLoading ?  
+        <Block className="demo-preloaders align-items-stretch text-align-center">
+          <Preloader size={62} color="#42d1f4"></Preloader>
+        </Block>
+        :
+        <ToRender 
+        name={this.state.weather.name} 
+        country={this.state.weather.sys.country} 
+        temp={this.state.weather.main.temp}
+        humidity={this.state.weather.main.humidity}
+        visibility={this.state.weather.visibility}
+        main={this.state.weather.weather[0].main}
+        description={this.state.weather.weather[0].description}
+        icon={`http://openweathermap.org/img/w/${this.state.weather.weather[0].icon}.png`}
+        />
+        
+      }
 
+      {
+        this.state.isLoading ? null 
+      : 
+      <Block>
+          <Button raised small fill onClick={() => {this.setState({loginScreenOpened : true})}}>Settings</Button>
+      </Block>
+      }
+
+       <LoginScreen className="demo-login-screen" opened={this.state.loginScreenOpened} onLoginScreenClosed={() => {this.setState({loginScreenOpened : false})}}>
+          <Page loginScreen>
+            <LoginScreenTitle>SkyCast Settings</LoginScreenTitle>
+            <List form>
+            <ListInput
+              label="City"
+              type="text"
+              placeholder="Your City"
+              clearButton
+              value={this.state.city}
+              onInput={(e) => {
+              this.setState({ city: e.target.value});
+              }}
+            >
+              
+            </ListInput>
+            
+               <ListInput
+                label="State"
+                type="text"
+                placeholder="Your State"
+                clearButton
+                value={this.state.state}
+                onInput={(e) => {
+                  this.setState({ state: e.target.value});
+                }}
+              >
+                
+              </ListInput>
+              
+            </List>
+            <List>
+              <ListButton onClick={this.saveChanges.bind(this)}>Save Changes</ListButton>
+              <BlockTitle className="text-align-center">Emmanuel Haankwenda.</BlockTitle>
+            </List>
+          </Page>
+        </LoginScreen>
     </Page>
 
     );
+  }
+
+  saveChanges() {
+    const self = this;
+    const app = self.$f7;
+
+    app.dialog.alert(`City: ${self.state.city}<br>State: ${self.state.state}`, () => {
+      app.loginScreen.close();
+      location.reload();
+      
+    });
+
   }
 
   fetchWeather( cityName,state ) {
@@ -60,12 +141,6 @@ export default class extends React.Component {
   .catch(error => this.setState({ error, isLoading: false }));
   }
 
-  drawWeather(d){
-    let celcius = Math.round(parseFloat(d.main.temp)-273.15);
-	  let fahrenheit = Math.round(((parseFloat(d.main.temp)-273.15)*1.8)+32); 
-	  let description = d.weather[0].description;
-  }
-
 
   componentDidMount() {
     this.$f7ready((f7) => {
@@ -75,6 +150,6 @@ export default class extends React.Component {
       }
       // Call F7 APIs here
     });
-    this.fetchWeather( "Toronto","CA" )
+    this.fetchWeather( this.state.city,this.state.state )
   }
 }

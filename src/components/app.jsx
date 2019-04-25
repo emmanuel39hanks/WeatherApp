@@ -89,7 +89,7 @@ export default class extends React.Component {
           <Toolbar tabbar labels bottom>
             <Link tabLink="#view-home" tabLinkActive iconIos="f7:home_fil" iconAurora="f7:home_fil" iconMd="material:home" text="Home" />
             <Link tabLink="#view-about" iconIos="f7:list_fill" iconAurora="f7:list_fill" iconMd="material:view_list" text="About" />
-            <Link tabLink="#view-settings" iconIos="f7:settings_fill" iconAurora="f7:settings_fill" iconMd="material:settings" text="Settings" />
+            
           </Toolbar>
 
           {/* Your main view/tab, should have "view-main" class. It also has "tabActive" prop */}
@@ -98,8 +98,7 @@ export default class extends React.Component {
           {/* About View */}
           <View id="view-about" name="about" tab url="/about/" />
 
-          {/* Settings View */}
-          <View id="view-settings" name="settings" tab url="/settings/" />
+         
 
         </Views>
 

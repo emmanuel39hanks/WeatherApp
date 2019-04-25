@@ -12,3 +12,14 @@
 }
 
 /* Your app custom styles here */
+
+.loader {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.name {
+  font-size: 23px;
+  margin-bottom: 5px;
+}

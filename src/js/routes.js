@@ -1,7 +1,7 @@
 
 import HomePage from '../pages/home.jsx';
 import AboutPage from '../pages/about.jsx';
-import SettingsPage from '../pages/settings.jsx';
+
 
 import DynamicRoutePage from '../pages/dynamic-route.jsx';
 import RequestAndLoad from '../pages/request-and-load.jsx';
@@ -16,10 +16,7 @@ var routes = [
     path: '/about/',
     component: AboutPage,
   },
-  {
-    path: '/settings/',
-    component: SettingsPage,
-  },
+ 
 
   {
     path: '/dynamic-route/blog/:blogId/post/:postId/',
@@ -44,9 +41,9 @@ var routes = [
       setTimeout(function () {
         // We got user data from request
         var user = {
-          firstName: 'Vladimir',
-          lastName: 'Kharlampidi',
-          about: 'Hello, i am creator of Framework7! Hope you like it!',
+          firstName: 'Emmanuel',
+          lastName: 'Haankwenda',
+          about: 'Hello, i am creator of SkyCast! Hope you like it!',
           links: [
             {
               title: 'Framework7 Website',
