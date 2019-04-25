@@ -1,8 +1,8 @@
 {
-  "name": "weather-app",
+  "name": "sky-cast",
   "private": true,
   "version": "1.0.0",
-  "description": "Weather App",
+  "description": "SkyCast",
   "repository": "",
   "license": "UNLICENSED",
   "framework7": {
@@ -10,7 +10,7 @@
     "type": [
       "cordova"
     ],
-    "name": "Weather App",
+    "name": "SkyCast",
     "pkg": "io.emmanuelhaankwenda.weatherapp",
     "platform": [
       "ios",

@@ -1,4 +1,4 @@
-# Weather App
+# SkyCast
 
 ## Framework7 CLI Options
 
@@ -10,7 +10,7 @@ Framework7 app created with following options:
   "type": [
     "cordova"
   ],
-  "name": "Weather App",
+  "name": "SkyCast",
   "pkg": "io.emmanuelhaankwenda.weatherapp",
   "platform": [
     "ios",
