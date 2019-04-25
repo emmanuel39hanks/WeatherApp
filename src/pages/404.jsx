@@ -5,7 +5,7 @@ export default () => (
   <Page>
     <Navbar title="Not found" backLink="Back" />
     <Block strong>
-      <p>Sorrys</p>
+      <p>Sorry</p>
       <p>Requested content not found.</p>
     </Block>
   </Page>
