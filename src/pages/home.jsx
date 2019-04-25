@@ -24,15 +24,16 @@ export default class extends React.Component {
   }
   render() {
     console.log(this.state.weather)
-    return (
+   // let iconurl = `http://openweathermap.org/img/w/${this.state.weather.list.weather.icon}.png`;
+   return (
       <Page name="home">
   
       <Navbar title="SkyCast" />
-      <BlockTitle>{this.state.weather.name}</BlockTitle>
+      <BlockTitle>{this.state.weather.name},</BlockTitle>
       <List simple-list>
-        <ListItem title="Item 1"></ListItem>
-        <ListItem title="Item 2"></ListItem>
-        <ListItem title="Item 3"></ListItem>
+        <ListItem title="Temp:"></ListItem>
+        <ListItem title="Humidity:"></ListItem>
+        <ListItem title="Visibility:"></ListItem>
       </List>
 
     </Page>
@@ -40,11 +41,11 @@ export default class extends React.Component {
     );
   }
 
-  fetchWeather( cityID ) {
+  fetchWeather( cityName,state ) {
     let key = '11e009261b7bb55c2b24551bf4a3091d';
 
      // The API where i am fetching data from
-    fetch(`https://api.openweathermap.org/data/2.5/weather?id=${cityID}&appid=${key}`)
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName},${state}&appid=${key}`)
   // i get a response and receive the data in JSON format...
   .then(response => response.json())
   // ...then i update the state of our application
@@ -74,7 +75,6 @@ export default class extends React.Component {
       }
       // Call F7 APIs here
     });
-    this.fetchWeather( 6167865 )
+    this.fetchWeather( "Toronto","CA" )
   }
 }
- 
